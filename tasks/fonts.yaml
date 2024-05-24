@@ -1,0 +1,19 @@
+---
+- name: Create fonts directory if it doesn't exist
+  ansible.builtin.file:
+    path: "/Library/Fonts"
+    state: directory
+
+- name: Download fonts
+  ansible.builtin.get_url:
+    url: "{{ item.url }}"
+    dest: "$HOME/Downloads/{{ item.name }}.ttf"
+  loop: "{{ fonts }}"
+
+- name: Copy font files to fonts directory
+  ansible.builtin.copy:
+    src: "$HOME/Downloads/{{ item.name }}.ttf"
+    dest: "/Library/Fonts/{{ item.name }}.ttf"
+    mode: "0644"
+    remote_src: yes
+  loop: "{{ fonts }}"

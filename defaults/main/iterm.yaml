@@ -1,0 +1,6 @@
+---
+iterm2_plist_path: "$HOME/Library/Preferences/com.googlecode.iterm2.plist"
+iterm2_font_normal: "ComicMono"
+iterm2_font_normal_size: 14
+iterm2_font_noascii: "MesloLGS-NF-Regular"
+iterm2_font_noascii_size: 12

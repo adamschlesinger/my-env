@@ -1,0 +1,22 @@
+---
+- name: Install Homebrew
+  community.general.homebrew:
+    state: present
+
+- name: Set custom taps
+  community.general.homebrew_tap:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ taps }}"
+
+- name: Install brews
+  community.general.homebrew:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ brews }}"
+
+- name: Install casks
+  community.general.homebrew_cask:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ casks }}"

@@ -1,0 +1,9 @@
+---
+run_homebrew_tasks: true
+run_npm_tasks: true
+run_rust_tasks: true
+run_vim_tasks: true
+run_fonts_tasks: true
+run_iterm_tasks: true
+run_git_tasks: true
+run_macos_tasks: true

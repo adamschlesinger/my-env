@@ -1,0 +1,8 @@
+---
+- name: Install Rustup
+  ansible.builtin.shell: |
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+  become: yes
+  become_user: "{{ ansible_user_id }}"
+  args:
+    creates: "$HOME/.cargo/bin/rustup"

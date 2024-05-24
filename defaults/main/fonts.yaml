@@ -1,0 +1,14 @@
+---
+fonts:
+  - name: ComicMono
+    url: https://dtinth.github.io/comic-mono-font/ComicMono.ttf
+  - name: ComicMono-Bold
+    url: https://dtinth.github.io/comic-mono-font/ComicMono-Bold.ttf
+  - name: MesloLGS NF Regular
+    url: https://raw.githubusercontent.com/romkatv/powerlevel10k-media/master/MesloLGS%20NF%20Regular.ttf
+  - name: MesloLGS NF Italic
+    url: https://raw.githubusercontent.com/romkatv/powerlevel10k-media/master/MesloLGS%20NF%20Italic.ttf
+  - name: MesloLGS NF Bold
+    url: https://raw.githubusercontent.com/romkatv/powerlevel10k-media/master/MesloLGS%20NF%20Bold.ttf
+  - name: MesloLGS NF Bold Italic
+    url: https://raw.githubusercontent.com/romkatv/powerlevel10k-media/master/MesloLGS%20NF%20Bold%20Italic.ttf

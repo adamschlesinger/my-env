@@ -1,0 +1,19 @@
+---
+- name: Install Ultimate vimrc
+  ansible.builtin.shell: |
+    git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
+    sh ~/.vim_runtime/install_awesome_vimrc.sh
+  become: yes
+  become_user: "{{ ansible_user_id }}"
+  args:
+    creates: "$HOME/.vim_runtime"
+
+- name: Copy over custom config
+  ansible.builtin.copy:
+    src: "files/my_configs.vim"
+    dest: "$HOME/.vim_runtime/my_configs.vim"
+
+- name: Install Vim plugins
+  ansible.builtin.shell: |
+    vim +PlugInstall +qall
+

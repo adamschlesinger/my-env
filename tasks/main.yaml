@@ -1,0 +1,45 @@
+---
+- name: Assert that required variables are defined
+  ansible.builtin.assert:
+    that:
+      - user_name is defined
+      - user_email is defined
+
+- import_tasks: homebrew.yaml
+  when: run_homebrew_tasks
+
+- import_tasks: npm.yaml
+  when: run_npm_tasks
+
+- import_tasks: rust.yaml
+  when: run_rust_tasks
+
+- import_tasks: vim.yaml
+  when: run_vim_tasks
+
+- import_tasks: fonts.yaml
+  when: run_fonts_tasks
+
+- import_tasks: iterm.yaml
+  when: run_iterm_tasks
+
+- import_tasks: git.yaml
+  when: run_git_tasks
+
+- name: Copy dotfiles
+  ansible.builtin.copy:
+    src: "files/{{ item }}"
+    dest: "$HOME/{{ item }}"
+  loop:
+    - .zshrc
+    - .p10k.zsh
+  
+- name: Copy lsd config
+  ansible.builtin.copy:
+    src: "files/lsd_config.yaml"
+    dest: "$HOME/.config/lsd/config.yaml"
+  args:
+    creates: "$HOME/.config/lsd/config.yaml"
+
+- import_tasks: macos.yaml
+  when: run_macos_tasks

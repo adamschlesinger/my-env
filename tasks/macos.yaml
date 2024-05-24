@@ -1,0 +1,14 @@
+---
+- name: Execute command to show hidden files
+  ansible.builtin.shell: |
+    defaults write com.apple.finder AppleShowAllFiles YES
+  become: yes
+  become_user: "{{ ansible_user_id }}"
+
+- name: Relaunch Finder to apply changes
+  ansible.builtin.shell: |
+    killall Finder
+  become: yes
+  become_user: "{{ ansible_user_id }}"
+
+

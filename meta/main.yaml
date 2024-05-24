@@ -1,0 +1,10 @@
+---
+galaxy_info:
+  role_name: my-env
+  namespace: badplanning
+  description: Ansible role for setting up my mac
+  author: Adam Schlesinger
+  company: Bad Planning LLC
+  license: MIT
+  platforms:
+    - name: Mac
