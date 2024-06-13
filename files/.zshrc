@@ -27,7 +27,7 @@ export LC_ALL=en_US.UTF-8
 [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
 
 # aliases
-alias ls='lsd -AG'
+alias ls='lsd -A'
 alias tree='ls --tree'
 alias reload='source ~/.zshrc'
 alias epoch='date +%s'
@@ -36,6 +36,7 @@ alias co='checkout'
 alias filesizes='du -hs * | sort -h'
 alias ack='ack --color'
 alias vim="$(brew --prefix)/bin/vim"
+
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f "$HOME/.p10k.zsh" ]] || source "$HOME/.p10k.zsh"
@@ -56,7 +57,7 @@ export PATH="$(brew --prefix python)/libexec/bin:$PATH"
 eval "$(rbenv init - zsh)"
 
 # iterm2 shell integrations
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+#test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # 1password
 OP_BIOMETRIC_UNLOCK_ENABLED=true
@@ -81,3 +82,7 @@ source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.z
 
 # auto suggestions
 source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+
+# Created by `pipx` on 2024-06-09 02:02:04
+export PATH="$PATH:$HOME/.local/bin"
+

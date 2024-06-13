@@ -12,7 +12,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
-Plug 'itchyny/lightline.vim'
+"Plug 'itchyny/lightline.vim'
 Plug 'preservim/nerdtree'
 Plug 'tpope/vim-fugitive'
 call plug#end()
@@ -31,6 +31,9 @@ function! s:goyo_leave()
   Limelight!
 endfunction
 
+" enable mouse
+set mouse=a
+
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
@@ -39,3 +42,16 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 " Start Goyo with vim
 autocmd VimEnter * Goyo 140
+
+" END
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
+
+" Always run omnicomplete while typing in insert
+function! OpenCompletion()
+    if !pumvisible() && ((v:char >= 'a' && v:char <= 'z') || (v:char >= 'A' && v:char <= 'Z'))
+        call feedkeys("\<C-x>\<C-o>", "n")
+    endif
+endfunction
+
+"autocmd InsertCharPre * call OpenCompletion()
