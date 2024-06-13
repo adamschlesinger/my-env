@@ -20,9 +20,6 @@
 - import_tasks: fonts.yaml
   when: run_fonts_tasks
 
-- import_tasks: iterm.yaml
-  when: run_iterm_tasks
-
 - import_tasks: git.yaml
   when: run_git_tasks
 
@@ -33,6 +30,7 @@
   loop:
     - .zshrc
     - .p10k.zsh
+    - .alacritty.toml
   
 - name: Copy lsd config
   ansible.builtin.copy:

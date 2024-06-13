@@ -56,14 +56,15 @@ brews:
 casks:
   - 1password
   - 1password-cli
+  - alacritty
   - android-platform-tools
   - discord
   - docker
   - epic-games
   - flutter
+  - fontforge
   - gitkraken
   - google-chrome
-  - iterm2
   - jetbrains-toolbox
   - jupyterlab
   - orcaslicer

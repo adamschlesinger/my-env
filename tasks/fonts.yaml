@@ -17,3 +17,19 @@
     mode: "0644"
     remote_src: yes
   loop: "{{ fonts }}"
+
+- name: Get Nerd Fonts Patcher
+  ansible.builtin.unarchive:
+    remote_src: yes 
+    src: "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FontPatcher.zip"
+    dest: "$HOME/Downloads/FontPatcher"
+
+- name: Patch Fonts
+  ansible.builtin.shell: |
+    fontforge -script "$HOME/Downloads/FontPatcher/font-patcher" \
+      -o ~/Library/Fonts \
+      --mono \
+      --complete \
+      --name "{{ item.name }} Nerd Font" \
+      ~/Library/Fonts/{{ item.name }}.ttf
+  loop: "{{ fonts }}"
