@@ -19,7 +19,7 @@ family = "Comic Mono Nerd Font"
 [[keyboard.bindings]]
 chars = "exit\u000a"
 key = "E"
-mods = "Shift"
+mods = "Shift|Command"
 
 ## TMUX 
 # todo - more shortcuts (https://tmuxcheatsheet.com/)
@@ -84,6 +84,20 @@ chars = "\u00024"
 key = "Key4"
 mods = "Command"
 
+# open command prompt
+[[keyboard.bindings]]
+chars = """
+\u0002:
+"""
+key = ";"
+mods = "Command"
+
+# fzf
+[[keyboard.bindings]]
+chars = "\u0002F"
+key = "F"
+mods = "Command|Shift"
+
 ## VIM
 
 # save
@@ -95,12 +109,12 @@ key = "S"
 mods = "Command"
 
 # quit
-[[keyboard.bindings]]
-chars = """
-\u001B:qa
-"""
-key = "Q"
-mods = "Shift"
+#[[keyboard.bindings]]
+#chars = """
+#\u001B:qa
+#"""
+#key = "Q"
+#mods = "Shift|Command"
 
 ## DRACULA
 [colors.primary]

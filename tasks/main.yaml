@@ -23,6 +23,9 @@
 - import_tasks: git.yaml
   when: run_git_tasks
 
+- import_tasks: terminal.yaml
+  when: run_terminal_tasks
+
 - name: Copy dotfiles
   ansible.builtin.copy:
     src: "files/{{ item }}"
