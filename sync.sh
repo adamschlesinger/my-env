@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 script_path=$(readlink -f "$0")
-files_dir=$(dirname "$script_path")
+script_dir=$(dirname "$script_path")
+files_dir="$script_dir/files"
 
 cp "$HOME/.alacritty.toml" "$files_dir"
 cp "$HOME/.gitconfig" "$files_dir"
