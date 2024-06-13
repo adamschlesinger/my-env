@@ -44,6 +44,7 @@ brews:
   - shc
   - surreal
   - terraform
+  - tmux
   - tree
   - vacuum
   - valkey
