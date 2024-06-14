@@ -8,12 +8,21 @@ TERM = "alacritty"
 [window]
 decorations = "none"
 startup_mode = "Fullscreen"
+dynamic_padding = true
+
+[window.padding]
+x = 10
+y = 10
 
 [font]
 size = 16
 
 [font.normal]
 family = "Comic Mono Nerd Font"
+
+[cursor.style]
+shape = "Underline"
+blinking = "Always"
 
 # exit
 [[keyboard.bindings]]
