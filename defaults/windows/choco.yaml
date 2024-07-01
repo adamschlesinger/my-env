@@ -1,0 +1,7 @@
+---
+choco_packages:
+  - winsize2
+  - evga-precision-x1
+  - geforce-experience
+  - nvidia-broadcast
+  - qfinderpro

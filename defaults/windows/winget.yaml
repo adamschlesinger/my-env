@@ -1,0 +1,5 @@
+---
+winget_packages:
+  - hue-sync
+  - QNAP.QfinderPro
+  - Yamaha.SteinbergUSBDriver
