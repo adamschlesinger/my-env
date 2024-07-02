@@ -1,43 +1,52 @@
 ---
+scoop_buckets:
+  - extras
+  - java
+  - nonportable
+  - versions
+
 scoop_packages:
-  - versions/steam
+  - extras/aida64extreme
+  - extras/arduino
+  - extras/audacity
+  - extras/autohotkey
+  - extras/autojump
+  - extras/cpu-z
+  - extras/discord
+  - extras/firefox  
+  - extras/fontforge
+  - extras/gitkraken
+  - extras/googlechrome
+  - extras/imgburn
+  - extras/jetbrains-toolbox
+  - extras/makemkv
+  - extras/obs-studio
+  - extras/orcaslicer
+  - extras/postman
+  - extras/powertoys
+  - extras/prime95
+  - extras/psreadline
+  - extras/qflipper
+  - extras/raspberry-pi-imager
+  - extras/slack
+  - extras/thunderbird
+  - extras/vlc
+  - extras/vscode
+  - extras/wiztree
+  - extras/zoom
+  - games/battlenet
   - games/epic-games-launcher
   - games/goggalaxy
-  - games/battlenet
-  - main/python
-  - main/neovim
-  - extras/aida64extreme
-  - extras/gitkraken
-  - extras/obs-studio
-  - extras/wiztree
-  - extras/prime95
-  - extras/vscode
-  - extras/jetbrains-toolbox
-  - nonportable/unity-hub-np
-  - main/git-lfs
-  - extras/fontforge
-  - extras/makemkv
-  - extras/autohotkey
-  - extras/slack
-  - extras/discord
-  - extras/powertoys
-  - extras/orcaslicer
-  - extras/imgburn
-  - extras/qflipper
-  - extras/arduino
-  - extras/cpu-z
-  - extras/audacity
-  - main/docker
-  - extras/googlechrome
-  - extras/firefox  
-  - main/ant
   - java/openjdk
+  - main/ant
+  - main/docker
+  - main/git-lfs
+  - main/lsd
+  - main/neovim
   - main/nodejs
-  - extras/postman
-  - extras/thunderbird
-  - extras/raspberry-pi-imager
-  - extras/zoom
-  - main/zip
+  - main/oh-my-posh
+  - main/python
   - main/unzip
-  - extras/autojump
-  - https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/oh-my-posh.json
+  - main/zip
+  - nonportable/unity-hub-np
+  - versions/steam
