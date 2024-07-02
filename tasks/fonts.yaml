@@ -1,21 +1,8 @@
 ---
-- name: Create fonts directory if it doesn't exist
-  ansible.builtin.file:
-    path: "/Library/Fonts"
-    state: directory
-
 - name: Download fonts
   ansible.builtin.get_url:
     url: "{{ item.url }}"
     dest: "$HOME/Downloads/{{ item.name }}.ttf"
-  loop: "{{ fonts }}"
-
-- name: Copy font files to fonts directory
-  ansible.builtin.copy:
-    src: "$HOME/Downloads/{{ item.name }}.ttf"
-    dest: "/Library/Fonts/{{ item.name }}.ttf"
-    mode: "0644"
-    remote_src: yes
   loop: "{{ fonts }}"
 
 - name: Get Nerd Fonts Patcher
@@ -27,9 +14,22 @@
 - name: Patch Fonts
   ansible.builtin.shell: |
     fontforge -script "$HOME/Downloads/FontPatcher/font-patcher" \
-      -o ~/Library/Fonts \
+      -o $HOME/Downloads \
       --mono \
       --complete \
       --name "{{ item.name }} Nerd Font" \
-      ~/Library/Fonts/{{ item.name }}.ttf
+      $HOME/Downloads/{{ item.name }}.ttf
+  loop: "{{ fonts }}"
+  
+- name: Create fonts directory if it doesn't exist
+  ansible.builtin.file:
+    path: "/Library/Fonts"
+    state: directory
+
+- name: Copy font files to fonts directory
+  ansible.builtin.copy:
+    src: "$HOME/Downloads/{{ item.name }} Nerd Font.ttf"
+    dest: "/Library/Fonts/{{ item.name }} Nerd Font.ttf"
+    mode: "0644"
+    remote_src: yes
   loop: "{{ fonts }}"
