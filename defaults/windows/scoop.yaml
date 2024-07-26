@@ -32,6 +32,7 @@ scoop_packages:
   - extras/thunderbird
   - extras/vlc
   - extras/vscode
+  - extras/windows-terminal
   - extras/wiztree
   - extras/zoom
   - games/battlenet
@@ -40,7 +41,9 @@ scoop_packages:
   - java/openjdk
   - main/ant
   - main/docker
+  - main/dotnet-sdk
   - main/git-lfs
+  - main/gitui
   - main/lsd
   - main/neovim
   - main/nodejs
@@ -50,3 +53,4 @@ scoop_packages:
   - main/zip
   - nonportable/unity-hub-np
   - versions/steam
+
