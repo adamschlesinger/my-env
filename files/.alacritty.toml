@@ -11,8 +11,8 @@ startup_mode = "Fullscreen"
 dynamic_padding = true
 
 [window.padding]
-x = 10
-y = 10
+x = 2
+y = 2
 
 [font]
 size = 16
@@ -69,6 +69,18 @@ chars = "\u0002\u001b\u005b\u0042"
 key = "ArrowDown"
 mods = "Command"
 
+# new window
+[[keyboard.bindings]]
+chars = "\u0002c"
+key = "T"
+mods = "Command"
+
+# rename window
+[[keyboard.bindings]]
+chars = "\u0002,"
+key = ","
+mods = "Command"
+
 # goto window 1
 [[keyboard.bindings]]
 chars = "\u00021"
@@ -91,6 +103,18 @@ mods = "Command"
 [[keyboard.bindings]]
 chars = "\u00024"
 key = "Key4"
+mods = "Command"
+
+# goto window 5
+[[keyboard.bindings]]
+chars = "\u00025"
+key = "Key5"
+mods = "Command"
+
+# goto window 6
+[[keyboard.bindings]]
+chars = "\u00026"
+key = "Key6"
 mods = "Command"
 
 # open command prompt

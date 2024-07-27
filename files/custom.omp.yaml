@@ -3,7 +3,8 @@ final_space: true
 version: 2
 transient_prompt:
   background: "transparent"
-  template: "\n> "
+  template: "> "
+  newline: true
 blocks:
   - type: prompt
     alignment: left
