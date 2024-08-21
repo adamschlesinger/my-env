@@ -15,7 +15,11 @@ Plug 'junegunn/limelight.vim'
 "Plug 'itchyny/lightline.vim'
 Plug 'preservim/nerdtree'
 Plug 'tpope/vim-fugitive'
+Plug 'dracula/vim', { 'as': 'dracula'  }
 call plug#end()
+
+" set colors
+colorscheme dracula
 
 function! s:goyo_enter()
   set noshowmode
