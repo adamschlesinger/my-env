@@ -14,9 +14,11 @@
     name: "{{ item }}"
     state: present
   loop: "{{ brews }}"
+  ignore_errors: true
 
 - name: Install casks
   community.general.homebrew_cask:
     name: "{{ item }}"
     state: present
   loop: "{{ casks }}"
+  ignore_errors: true
