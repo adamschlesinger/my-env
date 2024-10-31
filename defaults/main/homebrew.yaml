@@ -2,6 +2,7 @@
 taps:
   - surrealdb/tap
   - heroku/brew
+  - daveshanley/vacuum
 
 brews:
   - ack
@@ -11,63 +12,91 @@ brews:
   - astro
   - awscli
   - bat
+  - brotli
   - btop
+  - cockroach
   - ctop
   - dolt
   - ffmpeg
   - firebase-cli
   - flatbuffers
   - flex
+  - fontforge
   - fzf
+  - gdrive
   - gh
   - git-lfs
   - gitui
   - go
   - graphviz
+  - helm
   - heroku
   - htop
   - infracost
   - jenkins-lts
+  - kubernetes-cli
   - libimobiledevice
   - lsd
+  - lua
+  - microk8s
+  - msgpack
+  - neofetch
+  - neovim
   - nifi
+  - nmap
   - node
+  - oh-my-posh
   - openapi-generator
   - openjdk
   - pcre2
+  - pipx
   - plantuml
-  - powerlevel10k
+  - postgresql
   - protobuf
   - python
   - rbenv
+  - ripgrep
+  - ruby
   - scrcpy
   - shc
+  - sqlite
   - surreal
   - terraform
+  - terragrunt
   - tmux
   - tree
   - vacuum
   - valkey
+  - wdiff
   - vim
   - yarn
+  - yt-dlp
   - zsh-autocomplete
   - zsh-autosuggestions
+  - zsh-completions
   - zsh-syntax-highlighting
 
 casks:
   - 1password
   - 1password-cli
   - alacritty
+  - alfred
   - android-platform-tools
+  - audacity
+  - blender
   - discord
   - docker
   - epic-games
+  - flox
   - flutter
   - fontforge
   - gitkraken
+  - godot
   - google-chrome
+  - headlamp
   - jetbrains-toolbox
   - jupyterlab
+  - multipass
   - orcaslicer
   - p4
   - p4v
@@ -79,7 +108,9 @@ casks:
   - rive
   - slack
   - sweet-home3d
+  - thunderbird
   - unity-hub
   - vlc
   - visual-studio-code
+  - whatsapp
   - zoom
