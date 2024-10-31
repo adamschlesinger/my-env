@@ -3,7 +3,7 @@
   ansible.builtin.shell: |
     git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
     sh ~/.vim_runtime/install_awesome_vimrc.sh
-  become: yes
+  become: true
   become_user: "{{ ansible_user_id }}"
   args:
     creates: "$HOME/.vim_runtime"

@@ -2,6 +2,5 @@
 - name: Install tmux package manager
   ansible.builtin.shell: |
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-    sh ~/.vim_runtime/install_awesome_vimrc.sh
   args:
     creates: "~/.tmux/plugins/tpm"

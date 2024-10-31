@@ -32,15 +32,18 @@
     dest: "$HOME/{{ item }}"
   loop:
     - .zshrc
-    - .p10k.zsh
     - .alacritty.toml
+    - .custom.omp.yaml
   
+- name: Creates lsd config dir
+  ansible.builtin.file:
+    path: "$HOME/.config/lsd/"
+    state: directory
+
 - name: Copy lsd config
   ansible.builtin.copy:
     src: "files/lsd_config.yaml"
     dest: "$HOME/.config/lsd/config.yaml"
-  args:
-    creates: "$HOME/.config/lsd/config.yaml"
 
 - import_tasks: macos.yaml
   when: run_macos_tasks

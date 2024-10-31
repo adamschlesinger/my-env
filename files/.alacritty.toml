@@ -1,6 +1,3 @@
-# alacritty.toml
-
-live_config_reload = true
 
 [env]
 TERM = "alacritty"
@@ -25,10 +22,10 @@ shape = "Underline"
 blinking = "Always"
 
 # exit
-[[keyboard.bindings]]
-chars = "exit\u000a"
-key = "E"
-mods = "Shift|Command"
+#[[keyboard.bindings]]
+#chars = "exit\u000a"
+#key = "E"
+#mods = "Shift|Command"
 
 ## TMUX 
 # todo - more shortcuts (https://tmuxcheatsheet.com/)
@@ -150,9 +147,14 @@ mods = "Command"
 #mods = "Shift|Command"
 
 ## DRACULA
+[colors]
+indexed_colors = []
+transparent_background_colors = false
+draw_bold_text_with_bright_colors = false
+
 [colors.primary]
-background = "#282a36"
-foreground = "#f8f8f2"
+background = "#282A36"
+foreground = "#F8F8F2"
 bright_foreground = "#ffffff"
 
 [colors.cursor]
@@ -165,11 +167,11 @@ cursor = "CellForeground"
 
 [colors.selection]
 text = "CellForeground"
-background = "#44475a"
+background = "#44475A"
 
 [colors.normal]
-black = "#21222c"
-red = "#ff5555"
+black = "#282A36"
+red = "#FF5555"
 green = "#50fa7b"
 yellow = "#f1fa8c"
 blue = "#bd93f9"
@@ -206,3 +208,8 @@ background = "#f1fa8c"
 [colors.hints.end]
 foreground = "#f1fa8c"
 background = "#282a36"
+
+[general]
+# alacritty.toml
+
+live_config_reload = true
