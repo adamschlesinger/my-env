@@ -18,4 +18,4 @@ cp "$HOME/.config/lsd/config.yaml" "$file_dir/lsd_config.yaml"
 cp "$HOME/.vim_runtime/my_configs.vim" "$files_dir"
 
 # tmux
-cp -R "$HOME/.config/tmux-powerline" "$file_dir"
+cp -R "$HOME/.config/tmux-powerline" "$files_dir"
