@@ -34,7 +34,8 @@
     - .zshrc
     - .alacritty.toml
     - .custom.omp.yaml
-  
+    - .tmux.conf
+
 - name: Creates lsd config dir
   ansible.builtin.file:
     path: "$HOME/.config/lsd/"

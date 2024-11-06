@@ -31,7 +31,9 @@ brews:
   - graphviz
   - helm
   - heroku
+  - honcho
   - htop
+  - imagemagick
   - infracost
   - jenkins-lts
   - kubernetes-cli
