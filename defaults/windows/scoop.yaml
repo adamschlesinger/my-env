@@ -1,56 +1,63 @@
 ---
 scoop_buckets:
-  - extras
-  - java
-  - nonportable
-  - versions
+- extras
+- java
+- nonportable
+- versions
 
 scoop_packages:
-  - extras/aida64extreme
-  - extras/arduino
-  - extras/audacity
-  - extras/autohotkey
-  - extras/autojump
-  - extras/cpu-z
-  - extras/discord
-  - extras/firefox  
-  - extras/fontforge
-  - extras/gitkraken
-  - extras/googlechrome
-  - extras/imgburn
-  - extras/jetbrains-toolbox
-  - extras/makemkv
-  - extras/obs-studio
-  - extras/orcaslicer
-  - extras/postman
-  - extras/powertoys
-  - extras/prime95
-  - extras/psreadline
-  - extras/qflipper
-  - extras/raspberry-pi-imager
-  - extras/slack
-  - extras/thunderbird
-  - extras/vlc
-  - extras/vscode
-  - extras/windows-terminal
-  - extras/wiztree
-  - extras/zoom
-  - games/battlenet
-  - games/epic-games-launcher
-  - games/goggalaxy
-  - java/openjdk
-  - main/ant
-  - main/docker
-  - main/dotnet-sdk
-  - main/git-lfs
-  - main/gitui
-  - main/lsd
-  - main/neovim
-  - main/nodejs
-  - main/oh-my-posh
-  - main/python
-  - main/unzip
-  - main/zip
-  - nonportable/unity-hub-np
-  - versions/steam
-
+- extras/alacritty
+- extras/arduino
+- extras/audacity
+- extras/autohotkey
+- extras/autojump
+- extras/cpu-z
+- extras/discord
+- extras/firefox
+- extras/fontforge
+- extras/gitkraken
+- extras/godot
+- extras/googlechrome
+- extras/hwmonitor
+- extras/imgburn
+- extras/jetbrains-toolbox
+- extras/makemkv
+- extras/obs-studio
+- extras/orcaslicer
+- extras/postman
+- extras/powertoys
+- extras/prime95
+- extras/psreadline
+- extras/qflipper
+- extras/raspberry-pi-imager
+- extras/slack
+- extras/thunderbird
+- extras/vlc
+- extras/vscode
+- extras/windows-terminal
+- extras/wiztree
+- extras/zoom
+- games/battlenet
+- games/epic-games-launcher
+- games/goggalaxy
+- java/openjdk
+- main/ant
+- main/btop
+- main/docker
+- main/docker-compose
+- main/dotnet-sdk
+- main/git-lfs
+- main/gitui
+- main/gsudo
+- main/iperf3
+- main/lsd
+- main/neovim
+- main/nodejs
+- main/oh-my-posh
+- main/python
+- main/speedtest-cli
+- main/unzip
+- main/vim
+- main/zip
+- nonportable/unity-hub-np
+- versions/steam
