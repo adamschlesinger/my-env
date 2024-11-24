@@ -18,6 +18,7 @@ scoop_packages:
 - extras/gitkraken
 - extras/godot
 - extras/googlechrome
+- extras/hwinfo
 - extras/hwmonitor
 - extras/imgburn
 - extras/jetbrains-toolbox
