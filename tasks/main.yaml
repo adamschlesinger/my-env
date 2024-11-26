@@ -5,6 +5,11 @@
       - user_name is defined
       - user_email is defined
 
+- name: Copy dotfiles
+  ansible.builtin.copy:
+    src: "files/dotfiles/"
+    dest: "$HOME/"
+
 - import_tasks: homebrew.yaml
   when: run_homebrew_tasks
 
@@ -25,26 +30,6 @@
 
 - import_tasks: terminal.yaml
   when: run_terminal_tasks
-
-- name: Copy dotfiles
-  ansible.builtin.copy:
-    src: "files/{{ item }}"
-    dest: "$HOME/{{ item }}"
-  loop:
-    - .zshrc
-    - .alacritty.toml
-    - .custom.omp.yaml
-    - .tmux.conf
-
-- name: Creates lsd config dir
-  ansible.builtin.file:
-    path: "$HOME/.config/lsd/"
-    state: directory
-
-- name: Copy lsd config
-  ansible.builtin.copy:
-    src: "files/lsd_config.yaml"
-    dest: "$HOME/.config/lsd/config.yaml"
 
 - import_tasks: macos.yaml
   when: run_macos_tasks

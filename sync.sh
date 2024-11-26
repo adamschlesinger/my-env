@@ -2,20 +2,24 @@
 
 script_path=$(readlink -f "$0")
 script_dir=$(dirname "$script_path")
-files_dir="$script_dir/files"
+files_dir="$script_dir/files/dotfiles"
+
+sync() {
+    rsync --archive --relative "$HOME/./$1" "$files_dir/"
+}
 
 # home dotfiles
-cp "$HOME/.alacritty.toml" "$files_dir"
-cp "$HOME/.gitconfig" "$files_dir"
-cp "$HOME/.p10k.zsh" "$files_dir"
-cp "$HOME/.tmux.conf" "$files_dir"
-cp "$HOME/.zshrc" "$files_dir"
+sync ".alacritty.toml"
+sync ".custom.omp.yaml"
+sync ".gitconfig"
+sync ".tmux.conf"
+sync ".zshrc"
 
 # lsd
-cp "$HOME/.config/lsd/config.yaml" "$file_dir/lsd_config.yaml"
+sync ".config/lsd/config.yaml"
 
 # vim
-cp "$HOME/.vim_runtime/my_configs.vim" "$files_dir"
+sync ".vim_runtime/my_configs.vim"
 
 # tmux
-cp -R "$HOME/.config/tmux-powerline" "$files_dir"
+sync ".config/tmux-powerline/"

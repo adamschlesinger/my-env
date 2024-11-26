@@ -1,10 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-#if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-#  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-#fi
-
 eval "$(oh-my-posh init zsh)"
 eval "$(oh-my-posh init zsh --config $HOME/.custom.omp.yaml)"
 
@@ -19,9 +12,9 @@ bindkey "$terminfo[kcbt]" menu-select
 FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
 # Language environment
-export LANG=en_US.UTF-8
-export LANGUAGE=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
+#export LANG=en_US.UTF-8
+#export LANGUAGE=en_US.UTF-8
+#export LC_ALL=en_US.UTF-8
 
 # autojump https://github.com/wting/autojump
 [ -f $(brew --prefix)/etc/profile.d/autojump.sh ] && . $(brew --prefix)/etc/profile.d/autojump.sh
@@ -81,5 +74,5 @@ source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 # Created by `pipx` on 2024-06-09 02:02:04
 export PATH="$PATH:$HOME/.local/bin"
 
-# p10k
-#source "$(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme"
+clear
+fastfetch
