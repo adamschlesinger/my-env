@@ -2,6 +2,6 @@
 - name: Install npm packages
   community.general.npm:
     name: "{{ item }}"
-    global: yes
+    global: true
     state: present
   loop: "{{ npm_packages }}"

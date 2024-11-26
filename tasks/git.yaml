@@ -1,9 +1,4 @@
 ---
-- name: Copy gitconfig
-  ansible.builtin.copy:
-    src: "files/.gitconfig"
-    dest: "$HOME/.gitconfig"
-
 - name: Add name to gitconfig
   replace:
     path: "$HOME/.gitconfig"

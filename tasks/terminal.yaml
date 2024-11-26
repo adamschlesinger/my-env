@@ -4,9 +4,3 @@
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
   args:
     creates: "~/.tmux/plugins/tpm"
-
-- name: Copy tmux-powerline configs
-  ansible.builtin.copy:
-    src: "files/tmux-powerline"
-    dest: "$HOME/.config"
-

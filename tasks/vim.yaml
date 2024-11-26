@@ -8,11 +8,6 @@
   args:
     creates: "$HOME/.vim_runtime"
 
-- name: Copy over custom config
-  ansible.builtin.copy:
-    src: "files/my_configs.vim"
-    dest: "$HOME/.vim_runtime/my_configs.vim"
-
 - name: Install Vim plugins
   ansible.builtin.shell: |
     vim +PlugInstall +qall
