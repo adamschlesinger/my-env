@@ -3,3 +3,4 @@ npm_packages:
     - winglang
     - handlebars
     - postman-to-openapi
+    - rollup
