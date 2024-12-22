@@ -13,6 +13,8 @@ sync ".alacritty.toml"
 sync ".custom.omp.yaml"
 sync ".gitconfig"
 sync ".tmux.conf"
+sync ".zshenv"
+sync ".zprofile"
 sync ".zshrc"
 
 # lsd
