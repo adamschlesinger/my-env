@@ -5,11 +5,6 @@
       - user_name is defined
       - user_email is defined
 
-- name: Copy dotfiles
-  ansible.builtin.copy:
-    src: "files/dotfiles/"
-    dest: "$HOME/"
-
 - import_tasks: homebrew.yaml
   when: run_homebrew_tasks
 
@@ -30,6 +25,11 @@
 
 - import_tasks: terminal.yaml
   when: run_terminal_tasks
+
+- name: Copy dotfiles
+  ansible.builtin.copy:
+    src: "files/dotfiles/"
+    dest: "$HOME/"
 
 - import_tasks: macos.yaml
   when: run_macos_tasks
