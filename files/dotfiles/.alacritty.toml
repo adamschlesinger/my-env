@@ -7,10 +7,6 @@ decorations = "none"
 startup_mode = "Fullscreen"
 dynamic_padding = true
 
-[window.padding]
-x = 2
-y = 2
-
 [font]
 size = 16
 

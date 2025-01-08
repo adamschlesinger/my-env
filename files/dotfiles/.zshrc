@@ -12,11 +12,9 @@ alias filesizes='du -hs * | sort -h'
 alias ack='ack --color'
 alias vim="$(brew --prefix)/bin/vim"
 
-# autojump https://github.com/wting/autojump
+# autojump 
+# https://github.com/wting/autojump
 [ -f $(brew --prefix)/etc/profile.d/autojump.sh ] && . $(brew --prefix)/etc/profile.d/autojump.sh
-
-# Created by `pipx` on 2024-06-09 02:02:04
-# export PATH="$PATH:$HOME/.local/bin"
 
 # 1password
 OP_BIOMETRIC_UNLOCK_ENABLED=true
@@ -52,6 +50,7 @@ bindkey -M menuselect              '^I'         menu-complete
 bindkey -M menuselect "$terminfo[kcbt]" reverse-menu-complete
 bindkey '^R' .history-incremental-search-backward
 bindkey '^S' .history-incremental-search-forward
+# zstyle ':autocomplete:*' default-context history-incremental-search-backward
 
 # auto suggestions
 # https://github.com/zsh-users/zsh-autosuggestions
