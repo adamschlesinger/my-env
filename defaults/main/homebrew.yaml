@@ -3,6 +3,8 @@ taps:
 - surrealdb/tap
 - heroku/brew
 - daveshanley/vacuum
+- tinygo-org/tools
+- fermyon/tap
 
 brews:
 - ack
@@ -18,6 +20,7 @@ brews:
 - ctop
 - dolt
 - fastfetch
+- fermyon/tap/spin
 - ffmpeg
 - firebase-cli
 - flatbuffers
@@ -68,6 +71,7 @@ brews:
 - surreal
 - terraform
 - terragrunt
+- tinygo
 - tmux
 - tree
 - vacuum
