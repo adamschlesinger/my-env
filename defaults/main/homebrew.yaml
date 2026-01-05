@@ -1,128 +1,167 @@
 ---
 taps:
-- surrealdb/tap
-- heroku/brew
-- daveshanley/vacuum
-- tinygo-org/tools
-- fermyon/tap
-
+  - cloudflare/cloudflare
+  - daveshanley/vacuum
+  - heroku/brew
+  - saulpw/vd
+  - spinframework/tap
+  - surrealdb/tap
+  - tinygo-org/tools
 brews:
-- ack
-- act
-- age
-- ansible
-- autojump
-- astro
-- awscli
-- bat
-- brotli
-- btop
-- cockroach
-- ctop
-- dolt
-- fastfetch
-- fermyon/tap/spin
-- ffmpeg
-- firebase-cli
-- flatbuffers
-- flex
-- fontforge
-- fzf
-- gdrive
-- gh
-- git-lfs
-- gitui
-- go
-- graphviz
-- helm
-- heroku
-- honcho
-- htop
-- imagemagick
-- infracost
-- jenkins-lts
-- k9s
-- kubernetes-cli
-- libimobiledevice
-- lsd
-- lua
-- msgpack
-- neofetch
-- neovim
-- nifi
-- nmap
-- node
-- oh-my-posh
-- openapi-generator
-- openjdk
-- pcre2
-- pipx
-- plantuml
-- postgresql
-- protobuf
-- pyenv
-- python
-- rbenv
-- ripgrep
-- ruby
-- scrcpy
-- shc
-- sops
-- sqlite
-- stow
-- surreal
-- terraform
-- terragrunt
-- tinygo
-- tmux
-- tree
-- vacuum
-- valkey
-- wdiff
-- wireguard-tools
-- vim
-- yarn
-- yt-dlp
-- zsh-autocomplete
-- zsh-autosuggestions
-- zsh-completions
-- zsh-syntax-highlighting
-
+  - ack
+  - act
+  - age
+  - ansible
+  - astro
+  - autojump
+  - awscli
+  - bat
+  - brotli
+  - btop
+  - cloudflare/cloudflare/cf-terraforming
+  - colima
+  - colordiff
+  - ctop
+  - daveshanley/vacuum/vacuum
+  - dive
+  - docker
+  - docker-compose
+  - dolt
+  - dotnet
+  - fastfetch
+  - ffmpeg
+  - fio
+  - firebase-cli
+  - flatbuffers
+  - flex
+  - fontforge
+  - fzf
+  - gallery-dl
+  - gdrive
+  - gh
+  - git-lfs
+  - gitui
+  - go
+  - go-task
+  - graphviz
+  - helm
+  - helm@3
+  - heroku/brew/heroku
+  - honcho
+  - htop
+  - hunspell
+  - imagemagick
+  - infracost
+  - iperf3
+  - jenkins-lts
+  - k3d
+  - k9s
+  - kubernetes-cli
+  - kustomize
+  - libimobiledevice
+  - lsd
+  - lua
+  - mosquitto
+  - msgpack
+  - neofetch
+  - neovim
+  - nifi
+  - nmap
+  - oh-my-posh
+  - ollama
+  - openapi-generator
+  - openjdk
+  - openjdk@17
+  - pipx
+  - plantuml
+  - postgresql@14
+  - protobuf
+  - pyenv
+  - pyenv-virtualenv
+  - rbenv
+  - ripgrep
+  - rsync
+  - ruby
+  - saulpw/vd/visidata
+  - scrcpy
+  - shc
+  - sops
+  - spinframework/tap/spin
+  - stow
+  - surrealdb/tap/surreal
+  - tailscale
+  - terraform
+  - terragrunt
+  - tinygo-org/tools/tinygo
+  - tmux
+  - tree
+  - valkey
+  - vim
+  - wasmtime
+  - wdiff
+  - wireguard-tools
+  - yarn
+  - yq
+  - yt-dlp
+  - zsh-autocomplete
+  - zsh-autosuggestions
+  - zsh-completions
+  - zsh-syntax-highlighting
 casks:
-- 1password
-- 1password-cli
-- alacritty
-- alfred
-- android-platform-tools
-- audacity
-- blender
-- discord
-- docker
-- epic-games
-- flox
-- flutter
-- fontforge
-- gitkraken
-- godot
-- google-chrome
-- headlamp
-- jetbrains-toolbox
-- jupyterlab
-- multipass
-- orcaslicer
-- p4
-- p4v
-- postman
-- provisionql
-- raspberry-pi-imager
-- rectangle
-- redisinsight
-- rive
-- slack
-- sweet-home3d
-- thunderbird
-- unity-hub
-- vlc
-- visual-studio-code
-- whatsapp
-- zoom
+  - 1password
+  - 1password-cli
+  - adobe-creative-cloud
+  - alacritty
+  - alfred
+  - android-commandlinetools
+  - android-platform-tools
+  - audacity
+  - bambu-studio
+  - betterdisplay
+  - blender
+  - brave-browser
+  - discord
+  - docker
+  - docker-desktop
+  - easytier
+  - epic-games
+  - firefox
+  - flox
+  - flutter
+  - fontforge
+  - fontforge-app
+  - gitkraken
+  - godot
+  - google-chrome
+  - headlamp
+  - jetbrains-toolbox
+  - jupyterlab
+  - jupyterlab-app
+  - karabiner-elements
+  - kiro
+  - multipass
+  - obs
+  - orcaslicer
+  - p4
+  - p4v
+  - postman
+  - proton-drive
+  - provisionql
+  - raspberry-pi-imager
+  - rectangle
+  - redis-insight
+  - redisinsight
+  - rive
+  - slack
+  - sweet-home3d
+  - syncthing
+  - syncthing-app
+  - thunderbird
+  - tidal
+  - tor-browser
+  - unity-hub
+  - versions
+  - visual-studio-code
+  - vlc
+  - whatsapp
+  - zoom
