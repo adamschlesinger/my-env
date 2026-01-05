@@ -1,15 +1,49 @@
 ---
+- name: Ensure FontForge is installed
+  community.general.homebrew:
+    name: fontforge
+    state: present
+
+- name: Create Downloads directory
+  ansible.builtin.file:
+    path: "$HOME/Downloads"
+    state: directory
+    mode: '0755'
+
+- name: Create FontPatcher directory
+  ansible.builtin.file:
+    path: "$HOME/Downloads/FontPatcher"
+    state: directory
+    mode: '0755'
+
 - name: Download fonts
   ansible.builtin.get_url:
     url: "{{ item.url }}"
     dest: "$HOME/Downloads/{{ item.name }}.ttf"
+    mode: '0644'
   loop: "{{ fonts }}"
+  register: font_downloads
+  failed_when: false
+
+- name: Check font download results
+  ansible.builtin.fail:
+    msg: "Failed to download font: {{ item.item.name }}"
+  loop: "{{ font_downloads.results }}"
+  when: item.failed | default(false)
 
 - name: Get Nerd Fonts Patcher
   ansible.builtin.unarchive:
     remote_src: yes 
     src: "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FontPatcher.zip"
     dest: "$HOME/Downloads/FontPatcher"
+    creates: "$HOME/Downloads/FontPatcher/font-patcher"
+  register: patcher_download
+  failed_when: false
+
+- name: Verify FontPatcher was downloaded
+  ansible.builtin.fail:
+    msg: "Failed to download or extract FontPatcher"
+  when: patcher_download.failed | default(false)
 
 - name: Patch Fonts
   ansible.builtin.shell: |
@@ -20,6 +54,13 @@
       --name "{{ item.name }} Nerd Font" \
       $HOME/Downloads/{{ item.name }}.ttf
   loop: "{{ fonts }}"
+  register: font_patch_results
+  failed_when: false
+
+- name: Check font patching results
+  ansible.builtin.debug:
+    msg: "Font patching for {{ item.item.name }}: {{ 'SUCCESS' if not item.failed else 'FAILED' }}"
+  loop: "{{ font_patch_results.results }}"
   
 - name: Create fonts directory if it doesn't exist
   ansible.builtin.file:
