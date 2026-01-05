@@ -1,0 +1,21 @@
+---
+- name: Install VSCode extensions
+  ansible.builtin.shell: |
+    code --install-extension "{{ item }}"
+  loop: "{{ vscode_extensions }}"
+  register: vscode_ext_install
+  failed_when: false
+  changed_when: "'already installed' not in vscode_ext_install.stdout"
+
+- name: Create VSCode settings directory
+  ansible.builtin.file:
+    path: "$HOME/Library/Application Support/Code/User"
+    state: directory
+    mode: '0755'
+
+- name: Copy VSCode settings
+  ansible.builtin.copy:
+    src: "files/vscode/"
+    dest: "$HOME/Library/Application Support/Code/User/"
+    mode: '0644'
+  when: vscode_settings_files is defined

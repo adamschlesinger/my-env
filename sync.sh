@@ -38,6 +38,43 @@ sync ".vim_runtime/my_configs.vim"
 # tmux
 sync ".config/tmux-powerline/"
 
+# VSCode settings
+echo "--- Syncing VSCode settings ---"
+if [ -f "$HOME/Library/Application Support/Code/User/settings.json" ]; then
+    echo "Syncing VSCode settings..."
+    mkdir -p "$files_dir/../vscode"
+    cp "$HOME/Library/Application Support/Code/User/settings.json" "$files_dir/../vscode/"
+    echo "  ✓ Successfully synced VSCode settings"
+else
+    echo "  ⚠ VSCode settings not found"
+fi
+
+# JetBrains settings
+# echo "--- Syncing JetBrains settings ---"
+# jetbrains_dir="$HOME/Library/Application Support/JetBrains"
+# if [ -d "$jetbrains_dir" ]; then
+#     echo "Syncing JetBrains IDE settings..."
+#     mkdir -p "$files_dir/../jetbrains"
+#     # Sync common IDE settings (adjust paths as needed for your specific IDEs)
+#     for ide_dir in "$jetbrains_dir"/*; do
+#         if [ -d "$ide_dir" ] && [[ "$(basename "$ide_dir")" != "Toolbox" ]]; then
+#             ide_name=$(basename "$ide_dir")
+#             echo "  Syncing $ide_name settings..."
+#             mkdir -p "$files_dir/../jetbrains/$ide_name"
+#             # Copy key configuration files (adjust as needed)
+#             if [ -d "$ide_dir/options" ]; then
+#                 cp -r "$ide_dir/options" "$files_dir/../jetbrains/$ide_name/" 2>/dev/null || true
+#             fi
+#             if [ -d "$ide_dir/keymaps" ]; then
+#                 cp -r "$ide_dir/keymaps" "$files_dir/../jetbrains/$ide_name/" 2>/dev/null || true
+#             fi
+#         fi
+#     done
+#     echo "  ✓ Successfully synced JetBrains settings"
+# else
+#     echo "  ⚠ JetBrains settings directory not found"
+# fi
+
 echo ""
 
 # Update homebrew defaults

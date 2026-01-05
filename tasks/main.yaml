@@ -31,5 +31,11 @@
     src: "files/dotfiles/"
     dest: "$HOME/"
 
+- import_tasks: vscode.yaml
+  when: run_vscode_tasks
+
+- import_tasks: jetbrains.yaml
+  when: run_jetbrains_tasks
+
 - import_tasks: macos.yaml
   when: run_macos_tasks

@@ -1,0 +1,42 @@
+---
+vscode_extensions:
+  # Language Support
+  - "ms-python.python"
+  - "ms-python.black-formatter"
+  - "ms-python.flake8"
+  - "ms-vscode.vscode-typescript-next"
+  - "bradlc.vscode-tailwindcss"
+  - "rust-lang.rust-analyzer"
+  - "golang.go"
+  - "ms-vscode.cpptools"
+  
+  # Frameworks
+  - "ms-vscode.vscode-json"
+  - "redhat.vscode-yaml"
+  - "ms-kubernetes-tools.vscode-kubernetes-tools"
+  - "ms-vscode-remote.remote-containers"
+  - "ms-azuretools.vscode-docker"
+  
+  # Git & Version Control
+  - "eamodio.gitlens"
+  - "github.vscode-pull-request-github"
+  - "github.copilot"
+  - "github.copilot-chat"
+  
+  # Productivity
+  - "esbenp.prettier-vscode"
+  - "ms-vscode.vscode-eslint"
+  - "streetsidesoftware.code-spell-checker"
+  - "gruntfuggly.todo-tree"
+  - "aaron-bond.better-comments"
+  - "pkief.material-icon-theme"
+  - "dracula-theme.theme-dracula"
+  
+  # Database
+  - "ms-mssql.mssql"
+  - "cweijan.vscode-mysql-client2"
+  
+  # Cloud & DevOps
+  - "ms-vscode.azurecli"
+  - "amazonwebservices.aws-toolkit-vscode"
+  - "hashicorp.terraform"

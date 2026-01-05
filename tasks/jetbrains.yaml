@@ -1,0 +1,29 @@
+---
+- name: Create JetBrains config directories
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    mode: '0755'
+  loop:
+    - "$HOME/Library/Application Support/JetBrains"
+    - "$HOME/.jetbrains"
+
+- name: Sync JetBrains IDE settings
+  ansible.builtin.copy:
+    src: "files/jetbrains/"
+    dest: "$HOME/Library/Application Support/JetBrains/"
+    mode: '0644'
+  when: jetbrains_settings_files is defined
+
+- name: Create JetBrains toolbox settings directory
+  ansible.builtin.file:
+    path: "$HOME/Library/Application Support/JetBrains/Toolbox"
+    state: directory
+    mode: '0755'
+
+- name: Copy JetBrains Toolbox settings
+  ansible.builtin.copy:
+    src: "files/jetbrains-toolbox/"
+    dest: "$HOME/Library/Application Support/JetBrains/Toolbox/"
+    mode: '0644'
+  when: jetbrains_toolbox_settings is defined

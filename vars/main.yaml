@@ -6,4 +6,6 @@ run_vim_tasks: true
 run_fonts_tasks: true
 run_terminal_tasks: true
 run_git_tasks: true
+run_vscode_tasks: true
+run_jetbrains_tasks: false
 run_macos_tasks: true

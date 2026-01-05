@@ -2,7 +2,7 @@
 galaxy_info:
   role_name: my-env
   namespace: badplanning
-  description: Ansible role for setting up my mac
+  description: Ansible role for setting up my computers
   author: Adam Schlesinger
   company: Bad Planning LLC
   license: MIT
