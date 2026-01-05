@@ -15,7 +15,7 @@ blocks:
     background: "#6272a4"
     type: os
     style: diamond
-  - properties:
+  - options:
       style: folder
     leading_diamond: <transparent,background></>
     trailing_diamond: 
@@ -23,9 +23,8 @@ blocks:
     background: "#bd93f9"
     type: path
     style: diamond
-  - properties:
+  - options:
       branch_icon: ""
-      fetch_stash_count: true
       fetch_status: false
       fetch_upstream_icon: true
     leading_diamond: <transparent,background></>
@@ -61,7 +60,7 @@ blocks:
     background: "#6272A4"
     type: python
     style: diamond
-  - properties:
+  - options:
       always_enabled: true
       style: austin
     leading_diamond: 
@@ -80,7 +79,7 @@ blocks:
 - type: prompt
   alignment: left
   segments:
-  - properties:
+  - options:
       always_enabled: true
     template: |-
       
