@@ -1,0 +1,28 @@
+---
+- name: Initialize rbenv
+  ansible.builtin.shell: |
+    eval "$(rbenv init -)"
+  args:
+    executable: /bin/bash
+
+- name: Install latest Ruby version
+  ansible.builtin.shell: |
+    eval "$(rbenv init -)"
+    LATEST_RUBY=$(rbenv install --list | grep -E '^\s*[0-9]+\.[0-9]+\.[0-9]+$' | tail -1 | tr -d ' ')
+    if ! rbenv versions | grep -q "$LATEST_RUBY"; then
+      rbenv install "$LATEST_RUBY"
+      rbenv global "$LATEST_RUBY"
+    fi
+  args:
+    executable: /bin/bash
+  register: ruby_install
+  changed_when: "'Installing' in ruby_install.stdout"
+
+- name: Install Ruby gems from defaults
+  ansible.builtin.gem:
+    name: "{{ item }}"
+    state: present
+    executable: "{{ ansible_env.HOME }}/.rbenv/shims/gem"
+  loop: "{{ ruby_gems | default([]) }}"
+  environment:
+    PATH: "{{ ansible_env.HOME }}/.rbenv/shims:{{ ansible_env.PATH }}"

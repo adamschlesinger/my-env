@@ -8,8 +8,20 @@
 - import_tasks: homebrew.yaml
   when: run_homebrew_tasks
 
+- import_tasks: ssh.yaml
+  when: run_ssh_tasks
+
+- import_tasks: python.yaml
+  when: run_python_tasks
+
+- import_tasks: node.yaml
+  when: run_node_tasks
+
 - import_tasks: npm.yaml
   when: run_npm_tasks
+
+- import_tasks: ruby.yaml
+  when: run_ruby_tasks
 
 - import_tasks: rust.yaml
   when: run_rust_tasks

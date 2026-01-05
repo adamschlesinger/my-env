@@ -1,0 +1,29 @@
+---
+- name: Initialize pyenv
+  ansible.builtin.shell: |
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
+  args:
+    executable: /bin/bash
+
+- name: Install latest Python version
+  ansible.builtin.shell: |
+    eval "$(pyenv init -)"
+    LATEST_PYTHON=$(pyenv install --list | grep -E '^\s*[0-9]+\.[0-9]+\.[0-9]+$' | tail -1 | tr -d ' ')
+    if ! pyenv versions | grep -q "$LATEST_PYTHON"; then
+      pyenv install "$LATEST_PYTHON"
+      pyenv global "$LATEST_PYTHON"
+    fi
+  args:
+    executable: /bin/bash
+  register: python_install
+  changed_when: "'Installing' in python_install.stdout"
+
+- name: Install Python packages from defaults
+  ansible.builtin.pip:
+    name: "{{ item }}"
+    state: present
+    executable: "{{ ansible_env.HOME }}/.pyenv/shims/pip"
+  loop: "{{ python_packages | default([]) }}"
+  environment:
+    PATH: "{{ ansible_env.HOME }}/.pyenv/shims:{{ ansible_env.PATH }}"

@@ -1,0 +1,19 @@
+---
+- name: Check if Node.js is installed via Homebrew
+  ansible.builtin.shell: brew list node
+  register: node_check
+  failed_when: false
+  changed_when: false
+
+- name: Install Node.js via Homebrew if not present
+  community.general.homebrew:
+    name: node
+    state: present
+  when: node_check.rc != 0
+
+- name: Install global npm packages from defaults
+  community.general.npm:
+    name: "{{ item }}"
+    global: true
+    state: present
+  loop: "{{ npm_packages | default([]) }}"

@@ -1,0 +1,67 @@
+---
+- name: Create .ssh directory
+  ansible.builtin.file:
+    path: "$HOME/.ssh"
+    state: directory
+    mode: '0700'
+
+- name: Check if SSH key already exists
+  ansible.builtin.stat:
+    path: "$HOME/.ssh/id_ed25519"
+  register: ssh_key_exists
+
+- name: Generate SSH key
+  ansible.builtin.shell: |
+    ssh-keygen -t ed25519 -C "{{ user_email }}" -f "$HOME/.ssh/id_ed25519" -N ""
+  when: not ssh_key_exists.stat.exists
+
+- name: Set SSH key permissions
+  ansible.builtin.file:
+    path: "$HOME/.ssh/id_ed25519"
+    mode: '0600'
+  when: not ssh_key_exists.stat.exists
+
+- name: Set SSH public key permissions
+  ansible.builtin.file:
+    path: "$HOME/.ssh/id_ed25519.pub"
+    mode: '0644'
+  when: not ssh_key_exists.stat.exists
+
+- name: Create SSH config
+  ansible.builtin.copy:
+    dest: "$HOME/.ssh/config"
+    mode: '0600'
+    content: |
+      Host *
+        AddKeysToAgent yes
+        UseKeychain yes
+        IdentityFile ~/.ssh/id_ed25519
+        
+      Host github.com
+        HostName github.com
+        User git
+        IdentityFile ~/.ssh/id_ed25519
+        
+      Host gitlab.com
+        HostName gitlab.com
+        User git
+        IdentityFile ~/.ssh/id_ed25519
+
+- name: Add SSH key to ssh-agent
+  ansible.builtin.shell: |
+    eval "$(ssh-agent -s)"
+    ssh-add --apple-use-keychain ~/.ssh/id_ed25519
+  when: not ssh_key_exists.stat.exists
+
+- name: Display SSH public key
+  ansible.builtin.shell: cat "$HOME/.ssh/id_ed25519.pub"
+  register: ssh_public_key
+  when: not ssh_key_exists.stat.exists
+
+- name: Show SSH public key for manual addition to services
+  ansible.builtin.debug:
+    msg: |
+      SSH key generated successfully!
+      Add this public key to your Git services (GitHub, GitLab, etc.):
+      {{ ssh_public_key.stdout }}
+  when: not ssh_key_exists.stat.exists
