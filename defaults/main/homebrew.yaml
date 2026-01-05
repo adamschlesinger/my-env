@@ -120,6 +120,7 @@ casks:
   - betterdisplay
   - blender
   - brave-browser
+  - charles
   - discord
   - docker
   - docker-desktop
@@ -130,6 +131,8 @@ casks:
   - flutter
   - fontforge
   - fontforge-app
+  - gcloud-cli
+  - gimp
   - gitkraken
   - godot
   - google-chrome
