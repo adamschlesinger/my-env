@@ -11,6 +11,7 @@ alias co='checkout'
 alias filesizes='du -hs * | sort -h'
 alias ack='ack --color'
 alias vim="$(brew --prefix)/bin/vim"
+alias k='kubectl'
 
 # autojump 
 # https://github.com/wting/autojump
@@ -63,6 +64,9 @@ source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.z
 # fzf
 export FZF_DEFAULT_OPTS='--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9 --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6 --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4'
 source <(fzf --zsh)
+
+# android
+export ANDROID_HOME="$(brew --prefix)/share/android-commandlinetools"
 
 clear
 fastfetch

@@ -9,6 +9,7 @@ taps:
 brews:
 - ack
 - act
+- age
 - ansible
 - autojump
 - astro
@@ -66,6 +67,7 @@ brews:
 - ruby
 - scrcpy
 - shc
+- sops
 - sqlite
 - stow
 - surreal
@@ -77,6 +79,7 @@ brews:
 - vacuum
 - valkey
 - wdiff
+- wireguard-tools
 - vim
 - yarn
 - yt-dlp
