@@ -11,9 +11,3 @@
     state: present
   when: node_check.rc != 0
 
-- name: Install global npm packages from defaults
-  community.general.npm:
-    name: "{{ item }}"
-    global: true
-    state: present
-  loop: "{{ npm_packages | default([]) }}"

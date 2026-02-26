@@ -1,9 +1,4 @@
 ---
 rust_packages:
-  - diesel
-  - rls
+  - diesel_cli
   - rust-analyzer
-  - rust-gdb
-  - rust-gdbgui
-  - rust-lldb
-  - rustdoc

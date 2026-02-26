@@ -18,4 +18,3 @@
     src: "files/vscode/"
     dest: "$HOME/Library/Application Support/Code/User/"
     mode: '0644'
-  when: vscode_settings_files is defined

@@ -19,6 +19,7 @@ brews:
   - brotli
   - btop
   - cloudflare/cloudflare/cf-terraforming
+  - cmake
   - colima
   - colordiff
   - ctop
@@ -41,8 +42,10 @@ brews:
   - gh
   - git-lfs
   - gitui
+  - gnupg
   - go
   - go-task
+  - gobuster
   - graphviz
   - helm
   - helm@3
@@ -103,7 +106,7 @@ brews:
   - yarn
   - yq
   - yt-dlp
-  - zsh-autocomplete
+
   - zsh-autosuggestions
   - zsh-completions
   - zsh-syntax-highlighting
@@ -111,7 +114,7 @@ casks:
   - 1password
   - 1password-cli
   - adobe-creative-cloud
-  - alacritty
+
   - alfred
   - android-commandlinetools
   - android-platform-tools
@@ -121,6 +124,7 @@ casks:
   - blender
   - brave-browser
   - charles
+  - claude-code
   - discord
   - docker
   - docker-desktop
@@ -142,6 +146,8 @@ casks:
   - jupyterlab-app
   - karabiner-elements
   - kiro
+  - kitty
+  - mullvad-vpn
   - multipass
   - obs
   - orcaslicer

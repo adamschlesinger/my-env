@@ -7,8 +7,10 @@
   become_user: "{{ ansible_user_id }}"
   args:
     creates: "$HOME/.vim_runtime"
+  register: vimrc_install
 
 - name: Install Vim plugins
   ansible.builtin.shell: |
     vim +PlugInstall +qall
+  when: vimrc_install.changed
 

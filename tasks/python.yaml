@@ -1,11 +1,4 @@
 ---
-- name: Initialize pyenv
-  ansible.builtin.shell: |
-    eval "$(pyenv init -)"
-    eval "$(pyenv virtualenv-init -)"
-  args:
-    executable: /bin/bash
-
 - name: Install latest Python version
   ansible.builtin.shell: |
     eval "$(pyenv init -)"

@@ -12,13 +12,6 @@
     creates: "$HOME/.cargo/bin/rustup"
   when: not rustup_exists.stat.exists
 
-- name: Add Rust to PATH for current session
-  ansible.builtin.lineinfile:
-    path: "$HOME/.zshrc"
-    line: 'export PATH="$HOME/.cargo/bin:$PATH"'
-    create: yes
-  when: not rustup_exists.stat.exists
-
 - name: Install Rust components and tools from defaults
   ansible.builtin.shell: |
     source $HOME/.cargo/env

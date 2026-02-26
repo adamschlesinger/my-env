@@ -1,12 +1,12 @@
 ---
 - name: Add name to gitconfig
-  replace:
+  ansible.builtin.replace:
     path: "$HOME/.gitconfig"
     regexp: "GITCONFIG_NAME"
     replace: "{{ user_name }}"
 
 - name: Add email to gitconfig
-  replace:
+  ansible.builtin.replace:
     path: "$HOME/.gitconfig"
     regexp: "GITCONFIG_EMAIL"
     replace: "{{ user_email }}"
