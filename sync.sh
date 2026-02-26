@@ -19,7 +19,7 @@ sync() {
 }
 
 echo "--- Syncing home dotfiles ---"
-sync ".alacritty.toml"
+sync ".config/kitty/"
 sync ".custom.omp.yaml"
 sync ".gitconfig"
 sync ".tmux.conf"
