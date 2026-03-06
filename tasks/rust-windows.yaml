@@ -1,0 +1,16 @@
+---
+- name: Check if Rust is installed
+  ansible.windows.win_shell: cargo --version
+  register: cargo_check
+  failed_when: false
+  changed_when: false
+
+- name: Install Rust via scoop if not present
+  ansible.windows.win_shell: scoop install rust
+  when: cargo_check.rc != 0
+
+- name: Install Rust packages from defaults
+  ansible.windows.win_shell: cargo install {{ item }}
+  loop: "{{ rust_packages | default([]) }}"
+  when: rust_packages is defined and rust_packages | length > 0
+  ignore_errors: true

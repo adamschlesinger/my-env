@@ -1,0 +1,25 @@
+---
+- name: Check if Scoop is installed
+  ansible.windows.win_stat:
+    path: "{{ ansible_env.USERPROFILE }}\\scoop\\shims\\scoop.cmd"
+  register: scoop_exists
+
+- name: Install Scoop
+  ansible.windows.win_shell: |
+    Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
+    irm get.scoop.sh | iex
+  when: not scoop_exists.stat.exists
+
+- name: Add Scoop buckets
+  ansible.windows.win_shell: scoop bucket add {{ item }}
+  loop: "{{ scoop_buckets }}"
+  register: bucket_result
+  failed_when: bucket_result.rc != 0 and 'already exists' not in (bucket_result.stderr | default(''))
+  changed_when: "'already exists' not in (bucket_result.stderr | default(''))"
+
+- name: Install Scoop packages
+  ansible.windows.win_shell: scoop install {{ item }}
+  loop: "{{ scoop_packages }}"
+  register: scoop_install
+  failed_when: false
+  changed_when: "'already installed' not in (scoop_install.stdout | default(''))"

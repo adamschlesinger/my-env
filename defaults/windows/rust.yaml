@@ -1,0 +1,4 @@
+---
+rust_packages:
+  - diesel_cli
+  - rust-analyzer

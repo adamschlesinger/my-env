@@ -1,0 +1,61 @@
+---
+- name: Ensure FontForge is installed via scoop
+  ansible.windows.win_shell: scoop install fontforge
+  changed_when: false
+
+- name: Create FontPatcher directory
+  ansible.windows.win_file:
+    path: "{{ ansible_env.USERPROFILE }}\\Downloads\\FontPatcher"
+    state: directory
+
+- name: Download fonts
+  ansible.windows.win_get_url:
+    url: "{{ item.url }}"
+    dest: "{{ ansible_env.USERPROFILE }}\\Downloads\\{{ item.name }}.ttf"
+  loop: "{{ fonts }}"
+  register: font_downloads
+  failed_when: false
+
+- name: Download FontPatcher
+  ansible.windows.win_get_url:
+    url: "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FontPatcher.zip"
+    dest: "{{ ansible_env.USERPROFILE }}\\Downloads\\FontPatcher.zip"
+  register: patcher_download
+  failed_when: false
+
+- name: Extract FontPatcher
+  ansible.windows.win_shell: |
+    if (-not (Test-Path "{{ ansible_env.USERPROFILE }}\Downloads\FontPatcher\font-patcher")) {
+      Expand-Archive -Path "{{ ansible_env.USERPROFILE }}\Downloads\FontPatcher.zip" `
+        -DestinationPath "{{ ansible_env.USERPROFILE }}\Downloads\FontPatcher" -Force
+    }
+  when: not patcher_download.failed | default(false)
+
+- name: Patch fonts
+  ansible.windows.win_shell: |
+    fontforge -script "{{ ansible_env.USERPROFILE }}\Downloads\FontPatcher\font-patcher" `
+      -o "{{ ansible_env.USERPROFILE }}\Downloads" `
+      --mono --complete `
+      --name "{{ item.name }} Nerd Font" `
+      "{{ ansible_env.USERPROFILE }}\Downloads\{{ item.name }}.ttf"
+  loop: "{{ fonts }}"
+  register: font_patch_results
+  failed_when: false
+
+- name: Check font patching results
+  ansible.builtin.debug:
+    msg: "Font patching for {{ item.item.name }}: {{ 'SUCCESS' if not item.failed else 'FAILED' }}"
+  loop: "{{ font_patch_results.results }}"
+
+- name: Create user fonts directory
+  ansible.windows.win_file:
+    path: "{{ ansible_env.LOCALAPPDATA }}\\Microsoft\\Windows\\Fonts"
+    state: directory
+
+- name: Install patched fonts
+  ansible.windows.win_copy:
+    src: "{{ ansible_env.USERPROFILE }}\\Downloads\\{{ item.name }} Nerd Font.ttf"
+    dest: "{{ ansible_env.LOCALAPPDATA }}\\Microsoft\\Windows\\Fonts\\{{ item.name }} Nerd Font.ttf"
+    remote_src: yes
+  loop: "{{ fonts }}"
+  ignore_errors: true

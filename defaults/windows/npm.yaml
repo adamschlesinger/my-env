@@ -1,0 +1,7 @@
+---
+npm_packages:
+  - handlebars
+  - npm
+  - postman-to-openapi
+  - rollup
+  - winglang

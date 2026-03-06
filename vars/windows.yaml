@@ -1,0 +1,16 @@
+---
+run_scoop_tasks: true
+run_choco_tasks: true
+run_winget_tasks: true
+run_ssh_tasks: true
+run_python_tasks: true
+run_node_tasks: true
+run_npm_tasks: true
+run_ruby_tasks: false
+run_rust_tasks: true
+run_git_tasks: true
+run_powershell_tasks: true
+run_fonts_tasks: true
+run_vscode_tasks: true
+run_jetbrains_tasks: false
+run_windows_settings_tasks: true

@@ -1,0 +1,92 @@
+---
+- name: Windows environment setup
+  hosts: localhost
+  vars:
+    user_name: "{{ lookup('env', 'GIT_USER_NAME') }}"
+    user_email: "{{ lookup('env', 'GIT_USER_EMAIL') }}"
+  vars_files:
+    - vars/windows.yaml
+    - defaults/windows/scoop.yaml
+    - defaults/windows/choco.yaml
+    - defaults/windows/winget.yaml
+    - defaults/windows/python.yaml
+    - defaults/windows/npm.yaml
+    - defaults/windows/ruby.yaml
+    - defaults/windows/rust.yaml
+    - defaults/main/vscode.yaml
+    - defaults/main/fonts.yaml
+  tasks:
+    - name: Assert required variables
+      ansible.builtin.assert:
+        that:
+          - user_name is defined
+          - user_email is defined
+
+    - name: Run Scoop tasks
+      ansible.builtin.include_tasks: tasks/scoop.yaml
+      when: run_scoop_tasks
+
+    - name: Run Chocolatey tasks
+      ansible.builtin.include_tasks: tasks/choco.yaml
+      when: run_choco_tasks
+
+    - name: Run winget tasks
+      ansible.builtin.include_tasks: tasks/winget.yaml
+      when: run_winget_tasks
+
+    - name: Run SSH tasks
+      ansible.builtin.include_tasks: tasks/ssh-windows.yaml
+      when: run_ssh_tasks
+
+    - name: Run Python tasks
+      ansible.builtin.include_tasks: tasks/python-windows.yaml
+      when: run_python_tasks
+
+    - name: Run Node.js tasks
+      ansible.builtin.include_tasks: tasks/node-windows.yaml
+      when: run_node_tasks
+
+    - name: Run npm tasks
+      ansible.builtin.include_tasks: tasks/npm.yaml
+      when: run_npm_tasks
+
+    - name: Run Ruby tasks
+      ansible.builtin.include_tasks: tasks/ruby-windows.yaml
+      when: run_ruby_tasks
+
+    - name: Run Rust tasks
+      ansible.builtin.include_tasks: tasks/rust-windows.yaml
+      when: run_rust_tasks
+
+    - name: Copy dotfiles
+      ansible.windows.win_copy:
+        src: "files/dotfiles/{{ item }}"
+        dest: "{{ ansible_env.USERPROFILE }}\\{{ item | replace('/', '\\') }}"
+      loop:
+        - .gitconfig
+        - .custom.omp.yaml
+      ignore_errors: true
+
+    - name: Run Git tasks
+      ansible.builtin.include_tasks: tasks/git.yaml
+      when: run_git_tasks
+
+    - name: Run PowerShell tasks
+      ansible.builtin.include_tasks: tasks/powershell.yaml
+      when: run_powershell_tasks
+
+    - name: Run fonts tasks
+      ansible.builtin.include_tasks: tasks/fonts-windows.yaml
+      when: run_fonts_tasks
+
+    - name: Run VSCode tasks
+      ansible.builtin.include_tasks: tasks/vscode-windows.yaml
+      when: run_vscode_tasks
+
+    - name: Run JetBrains tasks
+      ansible.builtin.include_tasks: tasks/jetbrains.yaml
+      when: run_jetbrains_tasks
+
+    - name: Run Windows settings tasks
+      ansible.builtin.include_tasks: tasks/windows_settings.yaml
+      when: run_windows_settings_tasks

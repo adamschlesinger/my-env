@@ -1,0 +1,6 @@
+---
+# Python is installed via scoop (main/python). This task installs global packages.
+- name: Install Python packages from defaults
+  ansible.windows.win_shell: pip install {{ item }}
+  loop: "{{ python_packages | default([]) }}"
+  ignore_errors: true

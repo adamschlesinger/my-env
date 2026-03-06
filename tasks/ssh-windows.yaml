@@ -1,0 +1,57 @@
+---
+- name: Create .ssh directory
+  ansible.windows.win_file:
+    path: "{{ ansible_env.USERPROFILE }}\\.ssh"
+    state: directory
+
+- name: Check if SSH key already exists
+  ansible.windows.win_stat:
+    path: "{{ ansible_env.USERPROFILE }}\\.ssh\\id_ed25519"
+  register: ssh_key_exists
+
+- name: Generate SSH key
+  ansible.windows.win_shell: |
+    ssh-keygen -t ed25519 -C "{{ user_email }}" -f "$env:USERPROFILE\.ssh\id_ed25519" -N '""'
+  when: not ssh_key_exists.stat.exists
+
+- name: Start and enable ssh-agent service
+  ansible.windows.win_service:
+    name: ssh-agent
+    start_mode: auto
+    state: started
+  when: not ssh_key_exists.stat.exists
+
+- name: Add SSH key to ssh-agent
+  ansible.windows.win_shell: ssh-add "$env:USERPROFILE\.ssh\id_ed25519"
+  when: not ssh_key_exists.stat.exists
+
+- name: Create SSH config
+  ansible.windows.win_copy:
+    dest: "{{ ansible_env.USERPROFILE }}\\.ssh\\config"
+    content: |
+      Host *
+        AddKeysToAgent yes
+        IdentityFile ~/.ssh/id_ed25519
+
+      Host github.com
+        HostName github.com
+        User git
+        IdentityFile ~/.ssh/id_ed25519
+
+      Host gitlab.com
+        HostName gitlab.com
+        User git
+        IdentityFile ~/.ssh/id_ed25519
+
+- name: Read SSH public key
+  ansible.windows.win_shell: Get-Content "$env:USERPROFILE\.ssh\id_ed25519.pub"
+  register: ssh_public_key
+  when: not ssh_key_exists.stat.exists
+
+- name: Show SSH public key for manual addition to services
+  ansible.builtin.debug:
+    msg: |
+      SSH key generated successfully!
+      Add this public key to your Git services (GitHub, GitLab, etc.):
+      {{ ssh_public_key.stdout }}
+  when: not ssh_key_exists.stat.exists

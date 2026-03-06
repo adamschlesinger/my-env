@@ -1,12 +1,13 @@
 ---
 scoop_buckets:
 - extras
+- games
 - java
 - nonportable
 - versions
 
 scoop_packages:
-- extras/alacritty
+- extras/kitty
 - extras/arduino
 - extras/audacity
 - extras/autohotkey

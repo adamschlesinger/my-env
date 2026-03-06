@@ -1,0 +1,13 @@
+---
+python_packages:
+  - acryl-datahub
+  - docker
+  - psutil
+  - pydantic
+  - PyYAML
+  - requests
+  - tabulate
+  - toml
+  - pip
+  - setuptools
+  - wheel

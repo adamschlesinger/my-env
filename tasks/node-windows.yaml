@@ -1,0 +1,11 @@
+---
+# Node.js is installed via scoop (main/nodejs). This task is a no-op if already present.
+- name: Check if Node.js is installed
+  ansible.windows.win_shell: node --version
+  register: node_check
+  failed_when: false
+  changed_when: false
+
+- name: Install Node.js via scoop if not present
+  ansible.windows.win_shell: scoop install nodejs
+  when: node_check.rc != 0

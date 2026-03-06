@@ -1,0 +1,5 @@
+---
+ruby_gems:
+  - bundler
+  - nokogiri
+  - sqlite3

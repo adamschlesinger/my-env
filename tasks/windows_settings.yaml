@@ -1,0 +1,27 @@
+---
+- name: Show hidden files in File Explorer
+  ansible.windows.win_regedit:
+    path: HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced
+    name: Hidden
+    data: 1
+    type: dword
+
+- name: Show file extensions in File Explorer
+  ansible.windows.win_regedit:
+    path: HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced
+    name: HideFileExt
+    data: 0
+    type: dword
+
+- name: Show full path in Explorer title bar
+  ansible.windows.win_regedit:
+    path: HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\CabinetState
+    name: FullPath
+    data: 1
+    type: dword
+
+- name: Restart File Explorer to apply changes
+  ansible.windows.win_shell: |
+    Stop-Process -Name explorer -Force
+    Start-Sleep -Seconds 1
+    Start-Process explorer

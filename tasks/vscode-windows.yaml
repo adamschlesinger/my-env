@@ -1,0 +1,17 @@
+---
+- name: Install VSCode extensions
+  ansible.windows.win_shell: code --install-extension "{{ item }}"
+  loop: "{{ vscode_extensions }}"
+  register: vscode_ext_install
+  failed_when: false
+  changed_when: "'already installed' not in (vscode_ext_install.stdout | default(''))"
+
+- name: Create VSCode settings directory
+  ansible.windows.win_file:
+    path: "{{ ansible_env.APPDATA }}\\Code\\User"
+    state: directory
+
+- name: Copy VSCode settings
+  ansible.windows.win_copy:
+    src: "files/vscode/"
+    dest: "{{ ansible_env.APPDATA }}\\Code\\User\\"
