@@ -15,9 +15,11 @@ alias ack='ack --color'
 alias vim="$BREW_PREFIX/bin/vim"
 alias k='kubectl'
 
-# autojump
-# https://github.com/wting/autojump
-[ -f $BREW_PREFIX/etc/profile.d/autojump.sh ] && . $BREW_PREFIX/etc/profile.d/autojump.sh
+# zoxide (replaces autojump)
+eval "$(zoxide init zsh)"
+
+# atuin (shell history)
+eval "$(atuin init zsh)"
 
 # 1password
 OP_BIOMETRIC_UNLOCK_ENABLED=true

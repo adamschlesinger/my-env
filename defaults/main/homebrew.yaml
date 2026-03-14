@@ -13,6 +13,7 @@ brews:
   - age
   - ansible
   - astro
+  - atuin
   - autojump
   - awscli
   - bat
@@ -106,6 +107,7 @@ brews:
   - yarn
   - yq
   - yt-dlp
+  - zoxide
 
   - zsh-autosuggestions
   - zsh-completions
