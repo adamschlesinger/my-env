@@ -57,5 +57,8 @@ source <(fzf --zsh)
 # android
 export ANDROID_HOME="$BREW_PREFIX/share/android-commandlinetools"
 
-clear
-fastfetch
+# Only run on new windows, not pane splits
+if [ -z "$TMUX" ] || [ "$(tmux display-message -p '#{window_panes}')" = "1" ]; then
+  clear
+  fastfetch
+fi
