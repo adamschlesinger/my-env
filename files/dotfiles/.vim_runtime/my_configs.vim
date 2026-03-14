@@ -1,3 +1,6 @@
+" Enable true color
+set termguicolors
+
 colorscheme dracula
 
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
