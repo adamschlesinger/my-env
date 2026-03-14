@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Rename the current tmux window; no-op if not inside tmux
+[ -n "$TMUX" ] && tmux rename-window "$@"

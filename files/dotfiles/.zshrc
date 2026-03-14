@@ -1,4 +1,5 @@
 BREW_PREFIX=$(brew --prefix)
+export PATH="$HOME/.local/bin:$PATH"
 
 eval "$(oh-my-posh init zsh --config $HOME/.custom.omp.yaml)"
 

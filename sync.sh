@@ -19,6 +19,7 @@ sync() {
 }
 
 echo "--- Syncing home dotfiles ---"
+sync ".local/bin/"
 sync ".config/kitty/"
 sync ".custom.omp.yaml"
 sync ".gitconfig"
