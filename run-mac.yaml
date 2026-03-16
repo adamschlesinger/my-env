@@ -1,0 +1,82 @@
+---
+- name: macOS environment setup
+  hosts: localhost
+  vars:
+    user_name: "{{ lookup('env', 'GIT_USER_NAME') }}"
+    user_email: "{{ lookup('env', 'GIT_USER_EMAIL') }}"
+  vars_files:
+    - vars/main.yaml
+    - defaults/main/homebrew.yaml
+    - defaults/main/python.yaml
+    - defaults/main/npm.yaml
+    - defaults/main/ruby.yaml
+    - defaults/main/rust.yaml
+    - defaults/main/vscode.yaml
+    - defaults/main/fonts.yaml
+  tasks:
+    - name: Assert required variables
+      ansible.builtin.assert:
+        that:
+          - user_name is defined
+          - user_email is defined
+
+    - name: Run Homebrew tasks
+      ansible.builtin.include_tasks: tasks/homebrew.yaml
+      when: run_homebrew_tasks
+
+    - name: Run SSH tasks
+      ansible.builtin.include_tasks: tasks/ssh.yaml
+      when: run_ssh_tasks
+
+    - name: Run Python tasks
+      ansible.builtin.include_tasks: tasks/python.yaml
+      when: run_python_tasks
+
+    - name: Run Node.js tasks
+      ansible.builtin.include_tasks: tasks/node.yaml
+      when: run_node_tasks
+
+    - name: Run npm tasks
+      ansible.builtin.include_tasks: tasks/npm.yaml
+      when: run_npm_tasks
+
+    - name: Run Ruby tasks
+      ansible.builtin.include_tasks: tasks/ruby.yaml
+      when: run_ruby_tasks
+
+    - name: Run Rust tasks
+      ansible.builtin.include_tasks: tasks/rust.yaml
+      when: run_rust_tasks
+
+    - name: Run Vim tasks
+      ansible.builtin.include_tasks: tasks/vim.yaml
+      when: run_vim_tasks
+
+    - name: Run fonts tasks
+      ansible.builtin.include_tasks: tasks/fonts.yaml
+      when: run_fonts_tasks
+
+    - name: Run Git tasks
+      ansible.builtin.include_tasks: tasks/git.yaml
+      when: run_git_tasks
+
+    - name: Run terminal tasks
+      ansible.builtin.include_tasks: tasks/terminal.yaml
+      when: run_terminal_tasks
+
+    - name: Copy dotfiles
+      ansible.builtin.copy:
+        src: "files/dotfiles/"
+        dest: "{{ ansible_env.HOME }}/"
+
+    - name: Run VSCode tasks
+      ansible.builtin.include_tasks: tasks/vscode.yaml
+      when: run_vscode_tasks
+
+    - name: Run JetBrains tasks
+      ansible.builtin.include_tasks: tasks/jetbrains.yaml
+      when: run_jetbrains_tasks
+
+    - name: Run macOS settings tasks
+      ansible.builtin.include_tasks: tasks/macos.yaml
+      when: run_macos_tasks
