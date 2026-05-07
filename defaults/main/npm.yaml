@@ -2,6 +2,7 @@
 npm_packages:
   - handlebars
   - npm
+  - pi-coding-agent
   - postman-to-openapi
   - rollup
   - winglang

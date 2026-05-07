@@ -1,7 +1,6 @@
 ---
 taps:
   - cloudflare/cloudflare
-  - daveshanley/vacuum
   - heroku/brew
   - saulpw/vd
   - spinframework/tap
@@ -12,6 +11,7 @@ brews:
   - act
   - age
   - ansible
+  - argocd
   - astro
   - atuin
   - autojump
@@ -24,7 +24,6 @@ brews:
   - colima
   - colordiff
   - ctop
-  - daveshanley/vacuum/vacuum
   - dive
   - docker
   - docker-compose
@@ -55,13 +54,16 @@ brews:
   - htop
   - hunspell
   - imagemagick
+  - immich-go
   - infracost
   - iperf3
   - jenkins-lts
   - k3d
   - k9s
+  - kind
   - kubernetes-cli
   - kustomize
+  - lazygit
   - libimobiledevice
   - lsd
   - lua
@@ -83,12 +85,14 @@ brews:
   - pyenv
   - pyenv-virtualenv
   - rbenv
+  - rclone
   - ripgrep
   - rsync
   - ruby
   - saulpw/vd/visidata
   - scrcpy
   - shc
+  - skopeo
   - sops
   - spinframework/tap/spin
   - stow
@@ -99,6 +103,8 @@ brews:
   - tinygo-org/tools/tinygo
   - tmux
   - tree
+  - uv
+  - vacuum
   - valkey
   - vim
   - wasmtime
@@ -108,7 +114,7 @@ brews:
   - yq
   - yt-dlp
   - zoxide
-
+  - zsh-autocomplete
   - zsh-autosuggestions
   - zsh-completions
   - zsh-syntax-highlighting
@@ -116,7 +122,6 @@ casks:
   - 1password
   - 1password-cli
   - adobe-creative-cloud
-
   - alfred
   - android-commandlinetools
   - android-platform-tools
@@ -131,9 +136,9 @@ casks:
   - docker
   - docker-desktop
   - easytier
+  - elgato-camera-hub
   - epic-games
   - firefox
-  - flox
   - flutter
   - fontforge
   - fontforge-app
@@ -151,12 +156,12 @@ casks:
   - kitty
   - mullvad-vpn
   - multipass
+  - nextcloud
   - obs
   - orcaslicer
   - p4
   - p4v
   - postman
-  - proton-drive
   - provisionql
   - raspberry-pi-imager
   - rectangle
@@ -171,6 +176,7 @@ casks:
   - tidal
   - tor-browser
   - unity-hub
+  - vacuum
   - versions
   - visual-studio-code
   - vlc
