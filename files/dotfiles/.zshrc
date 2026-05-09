@@ -64,3 +64,4 @@ if [ -z "$TMUX" ] || [ "$(tmux display-message -p '#{window_panes}')" = "1" ]; t
   clear
   fastfetch
 fi
+

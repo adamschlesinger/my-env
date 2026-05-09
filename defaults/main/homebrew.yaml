@@ -78,6 +78,7 @@ brews:
   - openapi-generator
   - openjdk
   - openjdk@17
+  - opentofu
   - pipx
   - plantuml
   - postgresql@14
@@ -98,7 +99,6 @@ brews:
   - stow
   - surrealdb/tap/surreal
   - tailscale
-  - terraform
   - terragrunt
   - tinygo-org/tools/tinygo
   - tmux
@@ -121,7 +121,7 @@ brews:
 casks:
   - 1password
   - 1password-cli
-  - adobe-creative-cloud
+  - alacritty
   - alfred
   - android-commandlinetools
   - android-platform-tools

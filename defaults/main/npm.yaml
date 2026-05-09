@@ -1,8 +1,17 @@
 ---
 npm_packages:
+  - context-mode
   - handlebars
   - npm
+  - pi-btw
   - pi-coding-agent
+  - pi-gsd
+  - pi-mcp-adapter
+  - pi-powerline-footer
+  - pi-subagents
+  - pi-teams
+  - pi-tmux-rename
+  - pi-web-access
   - postman-to-openapi
   - rollup
   - winglang
