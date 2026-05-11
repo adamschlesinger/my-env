@@ -1,6 +1,15 @@
 BREW_PREFIX=$(brew --prefix)
 export PATH="$HOME/.local/bin:$PATH"
 
+if [[ "$TERM_PROGRAM" == "kiro" ]]; then
+  # disable pagers in kiro
+  export PAGER=cat
+  export MANPAGER=cat
+  export GIT_PAGER=cat
+
+  return # skip remaining config
+fi
+
 eval "$(oh-my-posh init zsh --config $HOME/.custom.omp.yaml)"
 
 # aliases
